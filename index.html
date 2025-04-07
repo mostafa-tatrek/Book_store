@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Store</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        height: 100vh;
+      }
+
+      .body {
+        background-image: url(books.jpeg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: 80%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+      }
+      .body::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      .container {
+        background-color: #d3d3d3;
+        padding: 30px;
+        margin-top: 40px;
+        border-radius: 10px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .from-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .from-container h2 {
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .num-book {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .books-data {
+        display: none;
+      }
+      .table-container {
+        margin-top: 20px;
+        display: none;
+      }
+      .table-container table {
+        border-collapse: collapse;
+        width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #777;
+      }
+      .table-container table thead {
+        background-color: rgb(19, 19, 148);
+        color: #fff;
+      }
+      .table-container table th,
+      .table-container table td {
+        border: 1px solid #777;
+        padding: 10px;
+        text-align: center;
+      }
+      .btn {
+        padding: 8px 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .btn.edit,
+      .btn.save {
+        background-color: rgb(38, 38, 232);
+        color: #fff;
+      }
+      .btn.delete,
+      .btn.cancel {
+        background-color: rgb(236, 37, 37);
+        color: #fff;
+      }
+      .error {
+        color: #f00;
+        padding-left: 5px;
+        visibility: hidden;
+      }
+      .from-container input[type="text"],
+      .from-container input[type="email"] {
+        padding: 10px;
+        width: 300px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        display: block;
+      }
+      .from-container button {
+        border: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        border-radius: 10px;
+        background-color: rgb(38, 38, 232);
+        color: #fff;
+        margin-top: 20px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <div class="container">
+        <div class="from-container">
+          <h2>Book Store</h2>
+          <div class="num-book">
+            <label for="booknum">Enter number of books</label>
+            <input type="text" id="booknum" name="booknum" />
+            <span class="error numBook"></span>
+            <button id="numsBtn">Enter</button>
+          </div>
+          <div class="books-data">
+            <div>
+              <label for="bookname">Enter name of book:</label>
+              <input type="text" id="bookname" name="bookname" />
+              <span class="error nameBook"></span>
+            </div>
+            <div>
+              <label for="bookprice">Enter price of book:</label>
+              <input type="text" id="bookprice" name="bookprice" />
+              <span class="error bookprice"></span>
+            </div>
+            <div>
+              <label for="outhername">Enter name of author:</label>
+              <input type="text" id="outhername" name="outhername" />
+              <span class="error outhername"></span>
+            </div>
+            <div>
+              <label for="outheremail">Enter Email of author:</label>
+              <input type="email" id="outheremail" name="outheremail" />
+              <span class="error outheremail"></span>
+            </div>
+            <button id="subBook">Add book</button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Book Name</th>
+                <th>Book Price</th>
+                <th>Author Name</th>
+                <th>Author Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="Main.js"></script>
+  </body>
+</html>
